@@ -83,15 +83,16 @@ time after writing a batch of data to be processed by the receiver.
 
 ## Skip things
 
-(*skip-varint* [_port_]) => _count_
-
 (*skip-varint-tail* [_port_]) => _count?_
 
-Skips any bytes that have a high bit set. Then expect one byte without
-the high bit set and skip it. Returns the number of bytes skipped.
+Skips any and all bytes that have the high bit set. Returns the number
+of bytes skipped, or `#f` if none.
 
-Skips any bytes that have the high bit set. Returns the number of
-bytes skipped, or `#f` if no bytes were skipped.
+(*skip-varint* [_port_]) => _count_
+
+Skips any and all bytes that have the high bit set. Then expect one
+byte without the high bit set and skip it, raising an error if such a
+byte is not found. Returns the number of bytes skipped.
 
 (*skip-varbytes* [_port_]) => _count_
 
