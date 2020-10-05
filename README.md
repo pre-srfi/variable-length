@@ -34,9 +34,6 @@ bit set.
 When reading a varint you need to keep track of the left-shift amount.
 It is zero for the first byte and increments by 7 for each new byte.
 
-Little-endian byte order means that leading zeros do not present a
-problem.
-
 ## Signed varint encoding
 
 Signed integers are mapped to unsigned integers using zig-zag
